@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^logout$',auth_views.LogoutView.as_view(),name = 'logout'),
     url(r'^signin$',views.SignUp.as_view(),name = 'signup'),
     url(r'^homePage$',views.homePage,name = 'homePage'),
-
+    url(r'^Appointments$',views.appoinment,name = 'appoinments'),
+    url(r'^p_inform$',views.p_inform,name = 'patient_information'),
     ]

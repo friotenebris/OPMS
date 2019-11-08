@@ -5,11 +5,18 @@
     <title></title>
   </head>
   <body>
-<h1>hello</h1>
-
-    <h1>{{user.first_name}}</h1>
     <h1>hello</h1>
 
+    <h1>{{user.first_name}} {{user.last_name}} </h1>
+    <h3>Personal Information</h3>
+    <p>Your weight: {{patient.weight}}</p>
+    <p>gender: {{patient.gender}} </p>
+    <p>previous_symptoms: {{patient.previous_symptoms}}</p>
 
+
+
+    <button >Appoiny<a href="{% url 'appoinments'%}">A</a></button>
+    <br>
+    <a href="{% url 'patient_information'%}">edit your informatiom</a>
   </body>
 </html>

@@ -8,7 +8,7 @@ from django.urls import reverse
 from . import forms
 import bcrypt
 from django.contrib.auth import get_user_model;
-from Register.models import Doc
+from Register.models import Doc,Patient
 User = get_user_model();
 
 class SignUp(CreateView):
@@ -17,9 +17,17 @@ class SignUp(CreateView):
     template_name = 'signup.html'
 def index(request):
     return render(request, 'main.html')
+def appoinment(request):
+    return render(request,'appointments.html')
+def p_inform(request):
+    u = User.objects.get(username=request.user.get_username())
+    patient = Patient.objects.get_or_create(patient=u)[0];
+    return render(request,'patient_information')
 def homePage(request):
     user=User
+    print(type(User))
     docc = Doc.objects.order_by()
+    print(type(docc[0]))
     isDoc = False
     n = User.objects.get(username=request.user.get_username())
     for i in docc:
@@ -31,6 +39,7 @@ def homePage(request):
     if (isDoc):
         return render(request,'success.html')
     else:
-        
-        c = {'a':user}
+        u = User.objects.get(username=request.user.get_username())
+        patient = Patient.objects.get_or_create(patient=u)[0];
+        c = {'patient':patient}
         return render(request,'homePage.html',c)
