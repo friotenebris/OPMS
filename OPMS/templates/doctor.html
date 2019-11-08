@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Doctors information</h1>
+    {%for doc in doc_list%}
+      <h1>{{doc.firstName}} {{doc.lastName}}</h1>
+      <br>
+      <button >Take apointment<a href="{% url 'apoinments'%}"></a></button>
+      
+      <br>
+      <h1>field: {{doc.field}}</h1>
+    {% endfor %}
+  </body>
+</html>
